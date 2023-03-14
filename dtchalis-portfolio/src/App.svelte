@@ -1,38 +1,60 @@
 <script>
-	import Header from './components/Header.svelte';
 	import Footer from './components/Footer.svelte';
-	import PollList from './components/PollList.svelte';
-	import Tabs from './shared/Tabs.svelte';
-	import CreatePollForm from './components/CreatePollForm.svelte';
-	
-	//tabs
-	let items = ['Current Polls', 'Add New Poll'];
-	let activeItem = 'Current Polls';
+	import Content from './components/PageContent.svelte';
 
-	const tabChange = (e) => {
+	import Games from './components/Games.svelte';
+    import Music from './components/Music.svelte';
+    import Graphics from './components/Graphics.svelte';
+    import Info from './components/Info.svelte';
+    import Contact from './components/Contact.svelte';
+
+	let items = ['HOME', 'GAMES', 'MUSIC', 'GRAPHICS', 'INFO', 'CONTACT']; 
+	let activeItem = 'HOME';
+
+	const handleTabChange = (e) => {
 		activeItem = e.detail;
 	}
 
-	const handleAdd = (e) => {
-		activeItem = 'Current Polls';
+	const resetActiveTab = () => {
+        activeItem = 'HOME';
+    }
+
+	const linkToGames = () => {
+		activeItem = 'GAMES';
+		console.log("Games page should be shown");
 	}
 </script>
 
-<Header/>
-<main>
-	<Tabs {activeItem}{items} on:tabChange={tabChange}/>
-	{#if activeItem === 'Current Polls'}
-		<PollList/>
-	{:else if activeItem === 'Add New Poll'}
-		<CreatePollForm on:add={handleAdd}/>
-	{/if}
-</main>
+{#if activeItem != 'HOME'}
+	<div class="panelbg">s</div>
+{/if}
 
-<Footer></Footer>
+{#if activeItem === 'GAMES'}
+	<Games/>
+{:else if activeItem === 'MUSIC'}
+	<Music/>
+{:else if activeItem === 'GRAPHICS'}
+	<Graphics/>
+{:else if activeItem === 'INFO'}
+	<Info on:linkToGames={linkToGames}/>
+{:else if activeItem === 'CONTACT'}
+	<Contact/>
+{/if}
+
+<Footer {activeItem} {items} on:tabChange={handleTabChange} on:resetActiveTab={resetActiveTab}/>
 
 <style>
-	main{
-		max-width: 960px;
-		margin: 40px auto;
+	.panelbg{
+		background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.301));
 	}
+
+	div {
+        color: transparent;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 45%;
+        background-color: #122932;
+    }
 </style>
