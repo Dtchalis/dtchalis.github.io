@@ -6,7 +6,12 @@ html, body {
 }
 
 body {
-	background: #2C514C;
+	/* background: #2C514C; */
+	background-image: url('img/dtchalis_bg_2.jpg');
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+ 	background-size: cover;
+	background-position: 0% 60%;
 	color: #333;
 	margin: 0;
 	box-sizing: border-box;

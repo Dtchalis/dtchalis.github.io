@@ -7,13 +7,13 @@
 <div class="parent">
     <div class="child">
         <p>
-            Driven by a love for curating euphoric digital experiences, game 
-            developer and audio composer 'Dtchalis' strives to innovate within the 
+            Driven by a love for curating euphoric digital experiences, game developer 
+            and audio composer 'Dtchalis' strives to innovate within the 
             realms of sound and gameplay.
         </p>
         
         <p>
-            With a diverse background in film scoring and software development, his 
+            With a diverse background in film scoring graphic design and software development, his 
             creative vision blends traditional and modern elements into an eclectic
             collage of analog and digital mediums.
         </p>
@@ -23,7 +23,7 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             At present, Dtchalis is fully dedicated to his <a on:click={() => dispatch('linkToGames', 'GAMES')}>upcoming indie games</a> and 
             his highly anticipated debut EP. He strongly welcomes collaboration and 
-            can be contacted at theofficialdtchalis@gmail.com 
+            can be contacted at theofficialdtchalis@gmail.com
         </p>
     </div>
 </div>
