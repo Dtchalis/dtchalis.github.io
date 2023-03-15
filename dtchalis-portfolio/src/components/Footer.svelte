@@ -10,12 +10,13 @@
 
 <footer>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <h1 on:click={() => dispatch('resetActiveTab', 'HOME')}>DTCHALIS</h1>
+    <!-- <h1 on:click={() => dispatch('resetActiveTab', 'HOME')}>DTCHALIS</h1> -->
+    <img on:click={() => dispatch('resetActiveTab', 'HOME')} src="img/Assets/Dtchalis_Logo_Text_2.gif" alt="">
     <Tabs {activeItem} {items} on:tabChange></Tabs>
 </footer>
 
 <style>
-    h1{
+    /* h1{
         color: white;
         font-weight: 100;
         font-size: 80px;
@@ -27,6 +28,11 @@
 
     h1:hover{
         color: #ffb100;
+    } */
+
+    img{
+        cursor: pointer;
+        padding: 0px 10px;
     }
 
     footer{
@@ -35,6 +41,6 @@
         font-weight: 500;
         position: absolute;
         bottom: 0;
-        width: 100%;
+        width: fit-content;
     }
 </style>

@@ -13,17 +13,25 @@
         </p>
         
         <p>
-            With a diverse background in film scoring graphic design and software development, his 
-            creative vision blends traditional and modern elements into an eclectic
+            <!-- svelte-ignore a11y-missing-attribute -->
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            With a diverse background in <a on:click={() => dispatch('onLinkClicked', 'MUSIC')}>film scoring</a>, 
+            <!-- svelte-ignore a11y-missing-attribute -->
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <a on:click={() => dispatch('onLinkClicked', 'GRAPHICS')}>graphic design</a> and 
+            software development, his creative vision blends traditional and modern elements into an eclectic
             collage of analog and digital mediums.
         </p>
         
         <p>
             <!-- svelte-ignore a11y-missing-attribute -->
             <!-- svelte-ignore a11y-click-events-have-key-events -->
-            At present, Dtchalis is fully dedicated to his <a on:click={() => dispatch('linkToGames', 'GAMES')}>upcoming indie games</a> and 
+            At present, Dtchalis is fully dedicated to his <a on:click={() => dispatch('onLinkClicked', 'GAMES')}>upcoming indie games</a> and 
             his highly anticipated debut EP. He strongly welcomes collaboration and 
-            can be contacted at theofficialdtchalis@gmail.com
+            can be contacted at 
+            <!-- svelte-ignore a11y-missing-attribute -->
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <a on:click={() => dispatch('onLinkClicked', 'CONTACT')}>theofficialdtchalis@gmail.com</a>.
         </p>
     </div>
 </div>
@@ -31,7 +39,6 @@
 
 <style>
     .parent {
-        
         position: absolute;
         top: 0;
         right: 0;
@@ -45,10 +52,11 @@
 
     .child {
         color: white;
+        padding: 50px;
+
         font-family: "Segoe UI";
         font-weight: 500;
         font-size: 19px;
-        padding: 50px;
     }
 
     p {

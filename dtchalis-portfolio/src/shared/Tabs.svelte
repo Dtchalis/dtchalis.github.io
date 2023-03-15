@@ -30,7 +30,7 @@
         list-style-type: none;
     }
     li{
-        margin: 0px 16px;
+        margin: 0px 32px;
         font-size: 18px;
         color: white;
         cursor: pointer;

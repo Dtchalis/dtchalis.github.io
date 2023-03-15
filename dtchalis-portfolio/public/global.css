@@ -5,18 +5,44 @@ html, body {
 	overflow: hidden;
 }
 
+@font-face {
+	font-family: 'MonumentExtended';
+	src: url('fonts/MonumentExtended-Regular.otf') format('opentype');
+}
+
+@font-face{
+	font-family :'HelveticaNeue';
+	src: url(fonts/Helvetica\ Neue\ Regular.otf) format('opentype');
+	font-style: normal;
+}
+
+@font-face{
+	font-family :'HelveticaNeueMedium';
+	src: url(fonts/Helvetica\ Neue\ 67\ Medium\ Condensed.otf) format('opentype');
+	font-style:normal;
+}
+
+@font-face{
+	font-family :'HelveticaNeueBlack';
+	src: url(fonts/Helvetica\ Neue\ 97\ Black\ Condensed.otf) format('opentype');
+	font-style:normal;
+}
+
+
 body {
-	/* background: #2C514C; */
-	background-image: url('img/dtchalis_bg_2.jpg');
+	background: #364643;
+	background-image: url('img/dtchalis_bg_3.jpg');
 	background-repeat: no-repeat;
   	background-attachment: fixed;
  	background-size: cover;
-	background-position: 0% 60%;
+	background-position: 0% 50%;
 	color: #333;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Monument","Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	/* font-family: -apple-system, BlinkMacSystemFont, "Monument","Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; */
+	font-family: 'MonumentExtended';
 }
+
 
 a {
 	color: rgb(0,100,200);

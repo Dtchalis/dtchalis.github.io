@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
+
 	import Footer from './components/Footer.svelte';
 	import Content from './components/PageContent.svelte';
 
@@ -8,7 +10,9 @@
     import Info from './components/Info.svelte';
     import Contact from './components/Contact.svelte';
 
-	let items = ['HOME', 'GAMES', 'MUSIC', 'GRAPHICS', 'INFO', 'CONTACT']; 
+	//MUSIC, GRAPHICS
+	let items = ['HOME', 'GAMES', 'INFO', 'CONTACT']; 
+	// let items = ['HOME', 'GAMES', 'MUSIC', 'GRAPHICS', 'INFO', 'CONTACT']; 
 	let activeItem = 'HOME';
 
 	const handleTabChange = (e) => {
@@ -19,14 +23,20 @@
         activeItem = 'HOME';
     }
 
-	const linkToGames = () => {
-		activeItem = 'GAMES';
-		console.log("Games page should be shown");
+	const handleLinkClicked = (e) => {
+		activeItem = e.detail;
+		console.log(activeItem + ' page should be shown');
 	}
+
+	onMount(() => {
+		activeItem = 'GAMES';
+	});
 </script>
 
+<Footer {activeItem} {items} on:tabChange={handleTabChange} on:resetActiveTab={resetActiveTab}/>
+
 {#if activeItem != 'HOME'}
-	<div class="panelbg">s</div>
+	<div class="panelbg"></div>
 {/if}
 
 {#if activeItem === 'GAMES'}
@@ -36,16 +46,14 @@
 {:else if activeItem === 'GRAPHICS'}
 	<Graphics/>
 {:else if activeItem === 'INFO'}
-	<Info on:linkToGames={linkToGames}/>
+	<Info on:onLinkClicked={handleLinkClicked}/>
 {:else if activeItem === 'CONTACT'}
 	<Contact/>
 {/if}
 
-<Footer {activeItem} {items} on:tabChange={handleTabChange} on:resetActiveTab={resetActiveTab}/>
-
 <style>
 	.panelbg{
-		background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.301));
+		background: linear-gradient(to right, transparent, rgb(0, 0, 0));
 	}
 
 	div {
