@@ -9,7 +9,7 @@
     import Graphics from './components/Graphics.svelte';
     import Info from './components/Info.svelte';
     import Contact from './components/Contact.svelte';
-
+	
 	//MUSIC, GRAPHICS
 	let items = ['HOME', 'GAMES', 'INFO', 'CONTACT']; 
 	// let items = ['HOME', 'GAMES', 'MUSIC', 'GRAPHICS', 'INFO', 'CONTACT']; 

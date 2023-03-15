@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 export const GamesStore = writable([
-    { title: 'Refractal', image: '' , Genres: '' },
+    { title: 'Refractal', image: 'img/Assets/TowerJump_Splash.png' , Genres: '', link: 'google.com'},
     { title: 'Tower Jump', image: '', Genres: '' },
     { title: 'DCM', image: '', Genres: '' },
     { title: 'Burst TCG', image: '', Genres: '' },

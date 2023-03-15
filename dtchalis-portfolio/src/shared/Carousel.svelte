@@ -1,6 +1,6 @@
 <script>
+    import ContentCard from '../shared/ContentCard.svelte';
     import { GamesStore } from '../stores/GamesStore.js';
-    import { ContentCard } from '../shared/ContentCard.svelte';
     import { onMount } from 'svelte';
 
     onMount(() => {
@@ -38,11 +38,12 @@
         right: 0;
         bottom: 0;
         width: 45%;
-        background-color: #122932;
+        /* background-color: #122932; */
     }
 
     .child {
-        border: 1px solid white;
+        /* border: 1px solid white; */
+        /* background-color: #244653; */
         margin: 50px 50px;
     }
 </style>
