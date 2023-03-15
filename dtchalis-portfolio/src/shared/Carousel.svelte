@@ -1,5 +1,6 @@
 <script>
     import { GamesStore } from '../stores/GamesStore.js';
+    import { ContentCard } from '../shared/ContentCard.svelte';
     import { onMount } from 'svelte';
 
     onMount(() => {
@@ -11,7 +12,7 @@
     function handleWheel(event) {
         if (event.deltaY < 0 && currentIndex > 0) {
             currentIndex--;
-        } else if (event.deltaY > 0 && currentIndex < items.length - 1) {
+        } else if (event.deltaY > 0 && currentIndex < $GamesStore.length - 1) {
             currentIndex++;
         }
 
@@ -23,9 +24,7 @@
     <div class="child">
         <div on:wheel={handleWheel}>
             {#each $GamesStore as item, i}
-              <div style="transform: translateY({(i - currentIndex) * 100}%)">
-                <h2>{item.title}</h2>
-              </div>
+              <ContentCard {item} position={i - currentIndex}/>
             {/each}
           </div>
     </div>
