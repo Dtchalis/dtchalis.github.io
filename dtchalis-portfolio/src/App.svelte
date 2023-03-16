@@ -53,7 +53,7 @@
 
 <style>
 	.panelbg{
-		background: linear-gradient(to right, transparent, rgb(0, 0, 0));
+		background: linear-gradient(to right, transparent, #122932);
 	}
 
 	div {

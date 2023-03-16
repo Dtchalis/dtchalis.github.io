@@ -10,4 +10,5 @@ export const GamesStore = writable([
     { title: 'Beyond the Veil', image: '', Genres: '' },
     { title: 'Lament In Paradise', image: '', Genres: '' },
     { title: 'Requiem of the End', image: '', Genres: '' },
+    { title: 'SankVerse', image: '', Genres: '' },
 ]);

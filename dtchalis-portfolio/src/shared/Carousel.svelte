@@ -23,8 +23,9 @@
 <div class="parent">
     <div class="child">
         <div on:wheel={handleWheel}>
-            {#each $GamesStore as item, i}
-              <ContentCard {item} position={i - currentIndex}/>
+            {#each $GamesStore as item, i} 
+            <!-- position={i - currentIndex} -->
+              <ContentCard {item} />
             {/each}
           </div>
     </div>

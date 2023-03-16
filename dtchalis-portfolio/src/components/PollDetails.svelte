@@ -40,9 +40,7 @@
         PollStore.update(currentPolls => {
             return currentPolls.filter(poll => poll.id != id);
         });
-    };
-
-   
+    }; 
 </script>
 
 <Card>
