@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	import Footer from './components/Footer.svelte';
-	import Content from './components/PageContent.svelte';
+	import SplashArt from './components/SplashArt.svelte';
 
 	import Games from './components/Games.svelte';
     import Music from './components/Music.svelte';
@@ -14,6 +14,7 @@
 	let items = ['HOME', 'GAMES', 'INFO', 'CONTACT']; 
 	// let items = ['HOME', 'GAMES', 'MUSIC', 'GRAPHICS', 'INFO', 'CONTACT']; 
 	let activeItem = 'HOME';
+	let gameID = 0;
 
 	const handleTabChange = (e) => {
 		activeItem = e.detail;
@@ -28,11 +29,18 @@
 		console.log(activeItem + ' page should be shown');
 	}
 
+	const handleMouseOver = (e) => {
+		gameID = e.detail;
+	}
+
 	onMount(() => {
-		activeItem = 'GAMES';
+		activeItem = 'HOME';
 	});
 </script>
 
+{#if activeItem === 'GAMES'}
+	<SplashArt {gameID}/>
+{/if}
 <Footer {activeItem} {items} on:tabChange={handleTabChange} on:resetActiveTab={resetActiveTab}/>
 
 {#if activeItem != 'HOME'}
@@ -40,7 +48,7 @@
 {/if}
 
 {#if activeItem === 'GAMES'}
-	<Games/>
+	<Games on:handleMouseOver={handleMouseOver}/>
 {:else if activeItem === 'MUSIC'}
 	<Music/>
 {:else if activeItem === 'GRAPHICS'}
@@ -52,17 +60,13 @@
 {/if}
 
 <style>
-	.panelbg{
+	.panelbg{		
 		background: linear-gradient(to right, transparent, #122932);
-	}
 
-	div {
-        color: transparent;
-        position: absolute;
+		position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         width: 45%;
-        background-color: #122932;
     }
 </style>

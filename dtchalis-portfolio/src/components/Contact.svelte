@@ -31,7 +31,7 @@
             errors.email = '';
         }
 
-        if (valid){
+        if (valid) {
             console.log(fields);
             dispatch('submitContact', fields);
         }

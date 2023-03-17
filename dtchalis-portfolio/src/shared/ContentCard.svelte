@@ -1,40 +1,28 @@
 <script>
-    // export let position = 0;
-    export let item = {title: '', image: '', genre: ''};
+    import { createEventDispatcher } from "svelte";
+    let dispatch = createEventDispatcher();
+
+    export let game = {title: '', card: '', splash: ''};
 </script>
- 
-<div class="card">
-    <!-- <img src={item.image} alt=""> -->
-    <h2>{item.title}</h2>
-    <div class="itemImage" style="background: url({item.image});"></div>
-    <div class="overlay"/>
-</div>
+
+<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+<slot>
+    <div class="card" style="background-image: url({game.card})" on:mouseover={dispatch('handleMouseOver', game.id)}/>
+</slot>
 
 <style>
     .card{
-        background-color: black;
-        height: 200px;
-        text-align: right;
+        height: 240px;
+        width: 700px;
+        display: flex;
         cursor: pointer;
-        margin: 30px 0px;
-    
+        margin: 70px 0px;
         border-radius: 5px;
-
-        /* background: linear-gradient(to left, transparent, yellow); */
+        border: 10px solid transparent;
+        background:#000 no-repeat 50% 50%; 
+        background-size: 120%;
     }
-    h2 {
-        position: absolute;
-    }
-    .itemImage{
-        background: red;
-    }
-    .overlay{
-        width: 100%;
-        height: 100%;
-        border-radius: 5px;
-        background: transparent;
-    }
-    .overlay:hover{
-        background: linear-gradient(to right, transparent, rgba(38, 0, 255));
+    .card:hover{
+        border: 10px solid #ffb100;
     }
 </style>
