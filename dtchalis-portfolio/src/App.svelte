@@ -10,8 +10,7 @@
     import Info from './components/Info.svelte';
     import Contact from './components/Contact.svelte';
 	
-	//MUSIC, GRAPHICS
-	let items = ['HOME', 'GAMES', 'INFO', 'CONTACT']; 
+	let items = ['HOME', 'GAMES', 'MUSIC', 'INFO', 'CONTACT']; 
 	// let items = ['HOME', 'GAMES', 'MUSIC', 'GRAPHICS', 'INFO', 'CONTACT']; 
 	let activeItem = 'HOME';
 	let gameID = 0;

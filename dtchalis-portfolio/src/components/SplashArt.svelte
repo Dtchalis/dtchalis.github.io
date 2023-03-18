@@ -7,13 +7,13 @@
 </script>
 
 <div class="coverImage" style="background-color: black;">
+    <!-- {#if game.title === 'Tower Jump'}
+        <img src="{$GamesStore[0].splash}" alt=""> -->
     {#if game.title === 'ReFractal'}
-	    <img src="{$GamesStore[0].splash}" alt="">
-    {:else if game.title === 'Tower Jump'}
-	    <img src="{$GamesStore[1].splash}" alt="">
+        <img src="{$GamesStore[0].splash}" alt="">
     {:else if game.title === 'Burst - Component Creator'}
-	    <img src="{$GamesStore[2].splash}" alt="">
-	    <!-- <img src="{game.splash}" alt=""> -->
+        <img src="{$GamesStore[1].splash}" alt="">
+        <!-- <img src="{game.splash}" alt=""> -->
     {/if}
 </div>
 
@@ -26,5 +26,7 @@
 	
 	.coverImage img{
 		filter: blur(8px);
+        width: inherit;
+        height: inherit;
 	}
 </style>

@@ -11,7 +11,9 @@
 <footer>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- <h1 on:click={() => dispatch('resetActiveTab', 'HOME')}>DTCHALIS</h1> -->
-    <img on:click={() => dispatch('resetActiveTab', 'HOME')} src="img/Assets/Dtchalis_Logo_Text_2.gif" alt="">
+    {#if activeItem != 'GAMES'}
+        <img on:click={() => dispatch('resetActiveTab', 'HOME')} src="img/Assets/Dtchalis_Logo_Text_2.gif" alt="">
+    {/if}
     <Tabs {activeItem} {items} on:tabChange/>
 </footer>
 

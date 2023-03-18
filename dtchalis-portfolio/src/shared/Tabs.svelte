@@ -9,12 +9,12 @@
 <div class="tabs">
     <ul>
         {#each items as item}
-        {#if item != 'HOME'}
+        <!-- {#if item != 'HOME'} -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <li on:click={() => dispatch('tabChange', item)}>
             <div class:active={item === activeItem} class:inactive={item != activeItem}>{item}</div>
         </li>
-        {/if}
+        <!-- {/if} -->
         {/each}
     </ul>
 </div>

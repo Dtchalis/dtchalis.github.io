@@ -23,9 +23,7 @@
     <div class="child">
         <div on:wheel={handleWheel} style="transform: translateY({currentIndex * 150}px);">
                 {#each $GamesStore as game, i}
-                    {#if i < 3}
-                        <ContentCard {game} on:handleMouseOver/>
-                    {/if}
+                    <ContentCard {game} on:handleMouseOver/>
                 {/each}
           </div>
     </div>
