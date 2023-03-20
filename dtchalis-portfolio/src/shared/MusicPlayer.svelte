@@ -37,6 +37,8 @@
       display: flex;
       align-items: center;
       width: 100%;
+      /* height: fit-content; */
+      background-color: #ffb100;
     }
   
     button {

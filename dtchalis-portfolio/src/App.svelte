@@ -11,7 +11,7 @@
     import Contact from './components/Contact.svelte';
 	
 	let items = ['HOME', 'GAMES', 'MUSIC', 'INFO', 'CONTACT']; 
-	// let items = ['HOME', 'GAMES', 'MUSIC', 'GRAPHICS', 'INFO', 'CONTACT']; 
+	// let items = ['HOME', 'GAMES', 'MUSIC', 'GRAPHICS', 'INFO', 'CONTACT'];
 	let activeItem = 'HOME';
 	let gameID = 0;
 
@@ -32,6 +32,8 @@
 		gameID = e.detail;
 	}
 
+	// var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json", {onProgress: UnityProgress});
+
 	onMount(() => {
 		activeItem = 'HOME';
 	});
@@ -45,6 +47,8 @@
 {#if activeItem != 'HOME'}
 	<div class="panelbg"></div>
 {/if}
+
+<!-- <div id="gameContainer"></div> -->
 
 {#if activeItem === 'GAMES'}
 	<Games on:handleMouseOver={handleMouseOver}/>

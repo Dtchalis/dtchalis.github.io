@@ -1,6 +1,9 @@
 <script>
     import MusicPlayer from "../shared/MusicPlayer.svelte";
 
+    let playbackTime = 0;
+    let duration = 100;
+    let isPlaying = false;
 </script>
 
 <div class="parent">
@@ -11,7 +14,7 @@
         <button>VGM</button>
         <button>Hip-Hop/RnB</button>
       </div>
-      <MusicPlayer></MusicPlayer>
+      <MusicPlayer {playbackTime} {duration} {isPlaying} />
     </div>
   </div>
   
@@ -19,6 +22,7 @@
     h1 {
       font-family: 'MonumentExtended';
       border-left: solid 10px #ffb100;
+      padding-left: 10px;
       /* padding-left: 10px; */
       /* margin-left: 20px; */
     }
@@ -30,13 +34,13 @@
       right: 0;
       bottom: 0;
       width: 45%;
-      background-color: #122932;
+      /* background-color: #122932; */
       justify-content: center;
       display: flex;
     }
   
     .child {
-      border: 1px solid white;
+      /* border: 1px solid white; */
       margin: 50px 50px;
       width: 100%;
       display: flex;
