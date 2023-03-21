@@ -1,15 +1,9 @@
 
-(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35731/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 var app = (function () {
     'use strict';
 
     function noop() { }
-    function assign(tar, src) {
-        // @ts-ignore
-        for (const k in src)
-            tar[k] = src[k];
-        return tar;
-    }
     function add_location(element, file, line, column, char) {
         element.__svelte_meta = {
             loc: { file, line, column, char }
@@ -55,52 +49,6 @@ var app = (function () {
     }
     function component_subscribe(component, store, callback) {
         component.$$.on_destroy.push(subscribe(store, callback));
-    }
-    function create_slot(definition, ctx, $$scope, fn) {
-        if (definition) {
-            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
-            return definition[0](slot_ctx);
-        }
-    }
-    function get_slot_context(definition, ctx, $$scope, fn) {
-        return definition[1] && fn
-            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
-            : $$scope.ctx;
-    }
-    function get_slot_changes(definition, $$scope, dirty, fn) {
-        if (definition[2] && fn) {
-            const lets = definition[2](fn(dirty));
-            if ($$scope.dirty === undefined) {
-                return lets;
-            }
-            if (typeof lets === 'object') {
-                const merged = [];
-                const len = Math.max($$scope.dirty.length, lets.length);
-                for (let i = 0; i < len; i += 1) {
-                    merged[i] = $$scope.dirty[i] | lets[i];
-                }
-                return merged;
-            }
-            return $$scope.dirty | lets;
-        }
-        return $$scope.dirty;
-    }
-    function update_slot_base(slot, slot_definition, ctx, $$scope, slot_changes, get_slot_context_fn) {
-        if (slot_changes) {
-            const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
-            slot.p(slot_context, slot_changes);
-        }
-    }
-    function get_all_dirty_from_scope($$scope) {
-        if ($$scope.ctx.length > 32) {
-            const dirty = [];
-            const length = $$scope.ctx.length / 32;
-            for (let i = 0; i < length; i++) {
-                dirty[i] = -1;
-            }
-            return dirty;
-        }
-        return -1;
     }
     function append(target, node) {
         target.appendChild(node);
@@ -830,7 +778,7 @@ var app = (function () {
     const file$8 = "src\\components\\Footer.svelte";
 
     // (14:4) {#if activeItem != 'GAMES'}
-    function create_if_block$3(ctx) {
+    function create_if_block$4(ctx) {
     	let img;
     	let img_src_value;
     	let mounted;
@@ -862,7 +810,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$3.name,
+    		id: create_if_block$4.name,
     		type: "if",
     		source: "(14:4) {#if activeItem != 'GAMES'}",
     		ctx
@@ -876,7 +824,7 @@ var app = (function () {
     	let t;
     	let tabs;
     	let current;
-    	let if_block = /*activeItem*/ ctx[1] != 'GAMES' && create_if_block$3(ctx);
+    	let if_block = /*activeItem*/ ctx[1] != 'GAMES' && create_if_block$4(ctx);
 
     	tabs = new Tabs({
     			props: {
@@ -912,7 +860,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block$3(ctx);
+    					if_block = create_if_block$4(ctx);
     					if_block.c();
     					if_block.m(footer, t);
     				}
@@ -1076,9 +1024,9 @@ var app = (function () {
     }
 
     const GamesStore = writable([
-        { id: 0, title: 'ReFractal', card: 'img/Assets/gifs/Refractal_card.gif', splash: 'img/Assets/gifs/Refractal_splash.gif', accent: '#1A121F', link: 'google.com'},
-        { id: 1, title: 'Burst - Component Creator', card: 'img/Assets/gifs/BurstCC_card.gif', splash: 'img/Assets/gifs/BurstCC_splash.gif', accent: '#EEEEEE', link: 'google.com'},
-        // { id: 2, title: 'Tower Jump', card: 'img/Assets/gifs/TowerJump_card.png', splash: 'img/Assets/gifs/TowerJump_splash_2.gif', accent: '', link: 'google.com' },
+        { id: 0, title: 'ReFractal', card: 'img/Assets/gifs/Refractal_card.gif', splash: 'img/Assets/gifs/Refractal_splash.gif', accent: '#21fb8e', hasDemo: true, link: 'https://drive.google.com/file/d/1luWuWMLQMFEpuZ3SpsgWehNUij4qQ8sv/view?usp=sharing'},
+        { id: 1, title: 'Tower Jump', card: 'img/Assets/gifs/TowerJump_card.gif', splash: 'img/Assets/gifs/TowerJump_splash.gif', accent: 'White', hasDemo: true, link: 'https://drive.google.com/file/d/1aHGbuTZYFOCPtvknd2kKbHrwkVAHqt_7/view?usp=sharing' },
+        { id: 2, title: 'Burst - Component Creator', card: 'img/Assets/gifs/BurstCC_card.gif', splash: 'img/Assets/gifs/BurstCC_splash.gif', accent: '#EEEEEE', hasDemo: false, link: ''},
         // { id: 3, title: 'Burst TCG', card: '', splash: '', accent: ''},
         // { id: 4, title: 'Super Rhythm Fighter', card: '', splash: '', accent: '' },
         // { id: 5, title: 'Die Man Dungeon', card: '', splash: '', accent: '' },
@@ -1093,6 +1041,43 @@ var app = (function () {
     const file$7 = "src\\components\\SplashArt.svelte";
 
     // (14:57) 
+    function create_if_block_2$1(ctx) {
+    	let img;
+    	let img_src_value;
+
+    	const block = {
+    		c: function create() {
+    			img = element("img");
+    			if (!src_url_equal(img.src, img_src_value = /*$GamesStore*/ ctx[0][2].splash)) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "");
+    			attr_dev(img, "class", "svelte-ifjcgq");
+    			add_location(img, file$7, 14, 8, 455);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, img, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$GamesStore*/ 1 && !src_url_equal(img.src, img_src_value = /*$GamesStore*/ ctx[0][2].splash)) {
+    				attr_dev(img, "src", img_src_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(img);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$1.name,
+    		type: "if",
+    		source: "(14:57) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (12:42) 
     function create_if_block_1$1(ctx) {
     	let img;
     	let img_src_value;
@@ -1102,8 +1087,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = /*$GamesStore*/ ctx[0][1].splash)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			attr_dev(img, "class", "svelte-57jrru");
-    			add_location(img, file$7, 14, 8, 463);
+    			attr_dev(img, "class", "svelte-ifjcgq");
+    			add_location(img, file$7, 12, 8, 344);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1122,15 +1107,15 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(14:57) ",
+    		source: "(12:42) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (12:4) {#if game.title === 'ReFractal'}
-    function create_if_block$2(ctx) {
+    // (10:4) {#if game.title === 'ReFractal'}
+    function create_if_block$3(ctx) {
     	let img;
     	let img_src_value;
 
@@ -1139,8 +1124,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = /*$GamesStore*/ ctx[0][0].splash)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			attr_dev(img, "class", "svelte-57jrru");
-    			add_location(img, file$7, 12, 8, 352);
+    			attr_dev(img, "class", "svelte-ifjcgq");
+    			add_location(img, file$7, 10, 4, 248);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1157,9 +1142,9 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$2.name,
+    		id: create_if_block$3.name,
     		type: "if",
-    		source: "(12:4) {#if game.title === 'ReFractal'}",
+    		source: "(10:4) {#if game.title === 'ReFractal'}",
     		ctx
     	});
 
@@ -1170,8 +1155,9 @@ var app = (function () {
     	let div;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*game*/ ctx[1].title === 'ReFractal') return create_if_block$2;
-    		if (/*game*/ ctx[1].title === 'Burst - Component Creator') return create_if_block_1$1;
+    		if (/*game*/ ctx[1].title === 'ReFractal') return create_if_block$3;
+    		if (/*game*/ ctx[1].title === 'Tower Jump') return create_if_block_1$1;
+    		if (/*game*/ ctx[1].title === 'Burst - Component Creator') return create_if_block_2$1;
     	}
 
     	let current_block_type = select_block_type(ctx);
@@ -1181,7 +1167,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", "coverImage svelte-57jrru");
+    			attr_dev(div, "class", "coverImage svelte-ifjcgq");
     			set_style(div, "background-color", "black");
     			add_location(div, file$7, 8, 0, 147);
     		},
@@ -1290,57 +1276,35 @@ var app = (function () {
     /* src\shared\ContentCard.svelte generated by Svelte v3.56.0 */
     const file$6 = "src\\shared\\ContentCard.svelte";
 
-    // (9:6)       
-    function fallback_block(ctx) {
+    // (21:8) {#if game.hasDemo && isMouseOver}
+    function create_if_block$2(ctx) {
     	let div;
-    	let mounted;
-    	let dispose;
+    	let h1;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "card svelte-1hgiflu");
-    			set_style(div, "background-image", "url(" + /*game*/ ctx[0].card + ")");
-    			add_location(div, file$6, 9, 4, 251);
+    			h1 = element("h1");
+    			h1.textContent = "Demo Available!";
+    			attr_dev(h1, "class", "svelte-3pk273");
+    			add_location(h1, file$6, 22, 16, 767);
+    			attr_dev(div, "class", "overlay svelte-3pk273");
+    			add_location(div, file$6, 21, 12, 728);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
-
-    			if (!mounted) {
-    				dispose = listen_dev(
-    					div,
-    					"mouseover",
-    					function () {
-    						if (is_function(/*dispatch*/ ctx[1]('handleMouseOver', /*game*/ ctx[0].id))) /*dispatch*/ ctx[1]('handleMouseOver', /*game*/ ctx[0].id).apply(this, arguments);
-    					},
-    					false,
-    					false,
-    					false,
-    					false
-    				);
-
-    				mounted = true;
-    			}
-    		},
-    		p: function update(new_ctx, dirty) {
-    			ctx = new_ctx;
-
-    			if (dirty & /*game*/ 1) {
-    				set_style(div, "background-image", "url(" + /*game*/ ctx[0].card + ")");
-    			}
+    			append_dev(div, h1);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
-    			mounted = false;
-    			dispose();
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: fallback_block.name,
-    		type: "fallback",
-    		source: "(9:6)       ",
+    		id: create_if_block$2.name,
+    		type: "if",
+    		source: "(21:8) {#if game.hasDemo && isMouseOver}",
     		ctx
     	});
 
@@ -1348,56 +1312,81 @@ var app = (function () {
     }
 
     function create_fragment$8(ctx) {
-    	let current;
-    	const default_slot_template = /*#slots*/ ctx[3].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[2], null);
-    	const default_slot_or_fallback = default_slot || fallback_block(ctx);
+    	let a;
+    	let div;
+    	let a_href_value;
+    	let mounted;
+    	let dispose;
+    	let if_block = /*game*/ ctx[0].hasDemo && /*isMouseOver*/ ctx[1] && create_if_block$2(ctx);
 
     	const block = {
     		c: function create() {
-    			if (default_slot_or_fallback) default_slot_or_fallback.c();
+    			a = element("a");
+    			div = element("div");
+    			if (if_block) if_block.c();
+    			attr_dev(div, "class", "card svelte-3pk273");
+    			set_style(div, "background-image", "url(" + /*game*/ ctx[0].card + ")");
+    			add_location(div, file$6, 19, 4, 491);
+    			attr_dev(a, "href", a_href_value = "" + (/*game*/ ctx[0].link + " class:inactiveLink=" + !/*game*/ ctx[0].hasDemo));
+    			add_location(a, file$6, 18, 0, 428);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			if (default_slot_or_fallback) {
-    				default_slot_or_fallback.m(target, anchor);
+    			insert_dev(target, a, anchor);
+    			append_dev(a, div);
+    			if (if_block) if_block.m(div, null);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(
+    						div,
+    						"mouseover",
+    						function () {
+    							if (is_function(/*dispatch*/ ctx[2]('handleMouseOver', /*game*/ ctx[0].id))) /*dispatch*/ ctx[2]('handleMouseOver', /*game*/ ctx[0].id).apply(this, arguments);
+    						},
+    						false,
+    						false,
+    						false,
+    						false
+    					),
+    					listen_dev(div, "mouseenter", /*handleMouseEnter*/ ctx[3], false, false, false, false),
+    					listen_dev(div, "mouseleave", /*handleMouseLeave*/ ctx[4], false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, [dirty]) {
+    			ctx = new_ctx;
+
+    			if (/*game*/ ctx[0].hasDemo && /*isMouseOver*/ ctx[1]) {
+    				if (if_block) ; else {
+    					if_block = create_if_block$2(ctx);
+    					if_block.c();
+    					if_block.m(div, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
     			}
 
-    			current = true;
-    		},
-    		p: function update(ctx, [dirty]) {
-    			if (default_slot) {
-    				if (default_slot.p && (!current || dirty & /*$$scope*/ 4)) {
-    					update_slot_base(
-    						default_slot,
-    						default_slot_template,
-    						ctx,
-    						/*$$scope*/ ctx[2],
-    						!current
-    						? get_all_dirty_from_scope(/*$$scope*/ ctx[2])
-    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[2], dirty, null),
-    						null
-    					);
-    				}
-    			} else {
-    				if (default_slot_or_fallback && default_slot_or_fallback.p && (!current || dirty & /*game*/ 1)) {
-    					default_slot_or_fallback.p(ctx, !current ? -1 : dirty);
-    				}
+    			if (dirty & /*game*/ 1) {
+    				set_style(div, "background-image", "url(" + /*game*/ ctx[0].card + ")");
+    			}
+
+    			if (dirty & /*game*/ 1 && a_href_value !== (a_href_value = "" + (/*game*/ ctx[0].link + " class:inactiveLink=" + !/*game*/ ctx[0].hasDemo))) {
+    				attr_dev(a, "href", a_href_value);
     			}
     		},
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(default_slot_or_fallback, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(default_slot_or_fallback, local);
-    			current = false;
-    		},
+    		i: noop,
+    		o: noop,
     		d: function destroy(detaching) {
-    			if (default_slot_or_fallback) default_slot_or_fallback.d(detaching);
+    			if (detaching) detach_dev(a);
+    			if (if_block) if_block.d();
+    			mounted = false;
+    			run_all(dispose);
     		}
     	};
 
@@ -1414,9 +1403,19 @@ var app = (function () {
 
     function instance$8($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
-    	validate_slots('ContentCard', slots, ['default']);
+    	validate_slots('ContentCard', slots, []);
     	let dispatch = createEventDispatcher();
     	let { game = { title: '', card: '', splash: '' } } = $$props;
+    	let isMouseOver = false;
+
+    	const handleMouseEnter = () => {
+    		$$invalidate(1, isMouseOver = true);
+    	};
+
+    	const handleMouseLeave = () => {
+    		$$invalidate(1, isMouseOver = false);
+    	};
+
     	const writable_props = ['game'];
 
     	Object.keys($$props).forEach(key => {
@@ -1425,21 +1424,28 @@ var app = (function () {
 
     	$$self.$$set = $$props => {
     		if ('game' in $$props) $$invalidate(0, game = $$props.game);
-    		if ('$$scope' in $$props) $$invalidate(2, $$scope = $$props.$$scope);
     	};
 
-    	$$self.$capture_state = () => ({ createEventDispatcher, dispatch, game });
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		dispatch,
+    		game,
+    		isMouseOver,
+    		handleMouseEnter,
+    		handleMouseLeave
+    	});
 
     	$$self.$inject_state = $$props => {
-    		if ('dispatch' in $$props) $$invalidate(1, dispatch = $$props.dispatch);
+    		if ('dispatch' in $$props) $$invalidate(2, dispatch = $$props.dispatch);
     		if ('game' in $$props) $$invalidate(0, game = $$props.game);
+    		if ('isMouseOver' in $$props) $$invalidate(1, isMouseOver = $$props.isMouseOver);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [game, dispatch, $$scope, slots];
+    	return [game, isMouseOver, dispatch, handleMouseEnter, handleMouseLeave];
     }
 
     class ContentCard extends SvelteComponentDev {
@@ -1556,11 +1562,11 @@ var app = (function () {
     			}
 
     			set_style(div0, "transform", "translateY(" + /*currentIndex*/ ctx[1] * 150 + "px)");
-    			add_location(div0, file$5, 23, 8, 638);
+    			add_location(div0, file$5, 23, 8, 637);
     			attr_dev(div1, "class", "child svelte-1owaiu4");
-    			add_location(div1, file$5, 22, 4, 609);
+    			add_location(div1, file$5, 22, 4, 608);
     			attr_dev(div2, "class", "parent svelte-1owaiu4");
-    			add_location(div2, file$5, 21, 0, 583);
+    			add_location(div2, file$5, 21, 0, 582);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
