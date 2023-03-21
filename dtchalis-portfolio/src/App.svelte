@@ -3,6 +3,8 @@
 
 	import Footer from './components/Footer.svelte';
 	import SplashArt from './components/SplashArt.svelte';
+	// import GameDescription from './components/GameDescription.svelte';
+	// import Sidebar from './components/Sidebar.svelte';
 
 	import Games from './components/Games.svelte';
     import Music from './components/Music.svelte';
@@ -10,9 +12,9 @@
     import Info from './components/Info.svelte';
     import Contact from './components/Contact.svelte';
 	
-	let items = ['HOME', 'GAMES', 'MUSIC', 'INFO', 'CONTACT']; 
+	let items = ['GAMES']; 
 	// let items = ['HOME', 'GAMES', 'MUSIC', 'GRAPHICS', 'INFO', 'CONTACT'];
-	let activeItem = 'HOME';
+	let activeItem = 'GAMES';
 	let gameID = 0;
 
 	const handleTabChange = (e) => {
@@ -20,7 +22,7 @@
 	}
 
 	const resetActiveTab = () => {
-        activeItem = 'HOME';
+        activeItem = 'GAMES';
     }
 
 	const handleLinkClicked = (e) => {
@@ -32,15 +34,14 @@
 		gameID = e.detail;
 	}
 
-	// var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json", {onProgress: UnityProgress});
-
 	onMount(() => {
-		activeItem = 'HOME';
+		activeItem = 'GAMES';
 	});
 </script>
 
 {#if activeItem === 'GAMES'}
 	<SplashArt {gameID}/>
+	<!-- <GameDescription {gameID}/> -->
 {/if}
 <Footer {activeItem} {items} on:tabChange={handleTabChange} on:resetActiveTab={resetActiveTab}/>
 
@@ -49,6 +50,7 @@
 {/if}
 
 <!-- <div id="gameContainer"></div> -->
+<!-- <img src="img/Assets/dtchalis_splash.png" alt=""> -->
 
 {#if activeItem === 'GAMES'}
 	<Games on:handleMouseOver={handleMouseOver}/>
@@ -62,6 +64,10 @@
 	<Contact/>
 {/if}
 
+
+
+<!-- <Sidebar></Sidebar> -->
+
 <style>
 	.panelbg{		
 		background: linear-gradient(to right, transparent, #122932);
@@ -72,4 +78,15 @@
         bottom: 0;
         width: 45%;
     }
+
+	/* h1{
+		position: absolute;
+
+		font-size: 10em;
+
+		left: 50px;
+		bottom: 0;
+
+		color: white;
+	} */
 </style>
