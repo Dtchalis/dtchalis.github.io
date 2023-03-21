@@ -1,9 +1,9 @@
 import { writable } from 'svelte/store';
 
 export const GamesStore = writable([
-    { id: 0, title: 'ReFractal', card: 'img/Assets/gifs/Refractal_card.gif', splash: 'img/Assets/gifs/Refractal_splash.gif', accent: '#1A121F', link: 'google.com'},
-    { id: 1, title: 'Burst - Component Creator', card: 'img/Assets/gifs/BurstCC_card.gif', splash: 'img/Assets/gifs/BurstCC_splash.gif', accent: '#EEEEEE', link: 'google.com'},
-    // { id: 2, title: 'Tower Jump', card: 'img/Assets/gifs/TowerJump_card.png', splash: 'img/Assets/gifs/TowerJump_splash_2.gif', accent: '', link: 'google.com' },
+    { id: 0, title: 'ReFractal', card: 'img/Assets/gifs/Refractal_card.gif', splash: 'img/Assets/gifs/Refractal_splash.gif', accent: '#21fb8e', hasDemo: true, link: 'https://drive.google.com/file/d/1luWuWMLQMFEpuZ3SpsgWehNUij4qQ8sv/view?usp=sharing'},
+    { id: 1, title: 'Tower Jump', card: 'img/Assets/gifs/TowerJump_card.gif', splash: 'img/Assets/gifs/TowerJump_splash.gif', accent: 'White', hasDemo: true, link: 'https://drive.google.com/file/d/1aHGbuTZYFOCPtvknd2kKbHrwkVAHqt_7/view?usp=sharing' },
+    { id: 2, title: 'Burst - Component Creator', card: 'img/Assets/gifs/BurstCC_card.gif', splash: 'img/Assets/gifs/BurstCC_splash.gif', accent: '#EEEEEE', hasDemo: false, link: ''},
     // { id: 3, title: 'Burst TCG', card: '', splash: '', accent: ''},
     // { id: 4, title: 'Super Rhythm Fighter', card: '', splash: '', accent: '' },
     // { id: 5, title: 'Die Man Dungeon', card: '', splash: '', accent: '' },

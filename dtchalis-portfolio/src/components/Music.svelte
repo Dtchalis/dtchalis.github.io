@@ -14,7 +14,7 @@
         <button>VGM</button>
         <button>Hip-Hop/RnB</button>
       </div>
-      <MusicPlayer {playbackTime} {duration} {isPlaying} />
+      <MusicPlayer {playbackTime} {duration} {isPlaying}/>
     </div>
   </div>
   

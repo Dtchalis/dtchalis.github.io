@@ -4,7 +4,7 @@
     import { onMount } from 'svelte';
 
     onMount(() => {
-       console.log($GamesStore); 
+       console.log($GamesStore);
     });
 
     let currentIndex = 0;
